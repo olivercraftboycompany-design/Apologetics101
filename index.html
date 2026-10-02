@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appolegetics 101</title>
+  <meta name="description" content="Plain-language answers to the big questions about faith.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip" href="#app">Skip to content</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#/" aria-label="Appolegetics 101 home">
+      <span class="wordmark-name">Appolegetics</span>
+      <span class="wordmark-num">101</span>
+    </a>
+    <span class="header-count" id="article-count"></span>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <p>Appolegetics 101 &mdash; <span id="year"></span></p>
+  </footer>
+
+  <!--
+  ============================================================
+   HOW TO ADD / REMOVE ARTICLES
+  ------------------------------------------------------------
+   1. Copy  articles/article-template.js  and rename it
+      (example: articles/why-believe.js)
+   2. Fill it in.
+   3. Add one line below for your new file.
+   4. To remove an article, delete its line (and the file).
+
+   Keep site.js FIRST. Articles show up newest-first
+   based on their date.
+  ============================================================
+  -->
+  <script src="site.js" defer></script>
+
+  <!-- ARTICLES START -->
+  <script src="articles/article-template.js" defer></script>
+  <!-- ARTICLES END -->
+
+</body>
+</html>
