@@ -1,51 +1,17 @@
-/* ==========================================================
-   ARTICLE TEMPLATE
-   ----------------------------------------------------------
-   To make a new article:
-     1. Copy this file and rename it (e.g. why-believe.js)
-     2. Change the details and content below
-     3. Add this line to index.html (between ARTICLES START/END):
-          <script src="articles/why-believe.js" defer></script>
-     4. Delete the line + file any time to remove an article.
-
-   RULES
-     - "slug" must be unique, lowercase, no spaces (use dashes).
-     - "date" must look like  2026-10-02  (year-month-day).
-     - Every block ends with a comma.
-     - Use straight quotes "like this". If your text has a
-       quote mark inside, use  \"  or wrap the text in 'single quotes'.
-
-   FORMATTING INSIDE ANY TEXT
-     **bold**    *italic*    [link text](https://example.com)
-
-   BLOCKS YOU CAN USE (mix and repeat in any order)
-     h2("Big heading")
-     h3("Smaller heading")
-     p("A paragraph.")
-     scripture("Verse text.", "Book 1:1")
-     quote("A quote.", "Who said it")
-     objection("What the skeptic says.", "How you answer.")
-     callout("Title", "A highlighted note.")
-     bullets(["one", "two", "three"])
-     numbered(["first", "second", "third"])
-     image("images/photo.jpg", "describe the image", "optional caption")
-     divider()
-   ========================================================== */
-
 registerArticle({
 
   // ----- Details -----
-  slug:     "why-does-god-allow-suffering",   // unique, used in the link
-  title:    "Why does God allow suffering?",
-  summary:  "One of the hardest questions people ask. Here is a calm, honest way to think it through.",
-  category: "Problem of evil",                // used for the filter buttons
-  author:   "Your Name",
-  date:     "2026-10-02",
+  slug:     "Question truely what you believe in.",   // unique, used in the link
+  title:    "Questioning your faith?",
+  summary:  "Why do I believe my faith and what is the evidence that supports my faith.",
+  category: "Faith",                // used for the filter buttons
+  author:   "Oliver Holder",
+  date:     "2026-10-2",
 
-  // ----- Your article, top to bottom -----
+
   content: [
 
-    p("If God is good and all-powerful, why is there so much pain in the world? This is the question people bring up most often, and it deserves a **serious** answer, not a quick one."),
+    p("Is my faith true or not? Well ask yourself is it? "),
 
     h2("Start with the question being asked"),
 
