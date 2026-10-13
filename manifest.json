@@ -1,0 +1,103 @@
+{
+  "name": "Apologetics101",
+  "short_name": "Apologetics",
+  "description": "Plain-language answers to the big questions about faith: articles, objections and answers, KJV verse lookup and a quiz. Works offline.",
+  "id": "/Apologetics101/",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "books",
+    "education",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Continue reading",
+      "short_name": "Continue",
+      "description": "Open the last article you were reading",
+      "url": "./?source=shortcut#/continue",
+      "icons": [
+        {
+          "src": "icons/shortcut-continue.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Did Jesus Really Rise?",
+      "short_name": "Jesus",
+      "description": "The Minimal Facts case for the resurrection",
+      "url": "./?source=shortcut#/resurrection-minimal-facts",
+      "icons": [
+        {
+          "src": "icons/shortcut-jesus.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Did God Create the Universe?",
+      "short_name": "God & Science",
+      "description": "Kalam and fine-tuning",
+      "url": "./?source=shortcut#/did-god-create-the-universe",
+      "icons": [
+        {
+          "src": "icons/shortcut-science.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Can We Trust the New Testament?",
+      "short_name": "The Bible",
+      "description": "How reliable is the New Testament?",
+      "url": "./?source=shortcut#/can-we-trust-the-new-testament",
+      "icons": [
+        {
+          "src": "icons/shortcut-bible.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

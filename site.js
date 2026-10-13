@@ -532,6 +532,12 @@
         .catch(function (err) {
           var off = verse(ref);
           if (off) { out.innerHTML = card(cardTitle("ph-book-open-text", esc(off.ref)) + verseCard(off) + '<p class="text-xs text-zinc-500 mt-4">Offline copy. Couldn\'t reach the Bible service.</p>'); return; }
+          if (!navigator.onLine || /offline/i.test(err && err.message)) {
+            out.innerHTML = card('<div class="flex items-start gap-3"><i class="ph-fill ph-wifi-slash text-2xl text-blue-400"></i><div>' +
+              '<p class="text-zinc-100 font-semibold">You\'re offline</p>' +
+              '<p class="text-zinc-400 text-sm mt-1">Looking up &ldquo;' + esc(ref) + '&rdquo; needs internet. Verses you\'ve looked up before, the verse of the day and every article still work offline.</p></div></div>');
+            return;
+          }
           console.warn("Verse lookup failed:", err && err.message);
           out.innerHTML = card('<div class="flex items-start gap-3"><i class="ph-fill ph-warning-circle text-2xl text-red-400"></i><div>' +
             '<p class="text-zinc-100 font-semibold">Couldn\'t find &ldquo;' + esc(ref) + "&rdquo;</p>" +

@@ -9,7 +9,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Apologetics">
+  <meta name="application-name" content="Apologetics101">
+  <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
   <!-- Inter font (same as NEXUS), saved locally -->
   <link rel="stylesheet" href="vendor/inter/inter.css">
@@ -71,6 +76,14 @@
 
   <div id="toast" role="status" aria-live="polite"></div>
 
+  <!-- Install as an app (shows only when Chrome says it can be installed) -->
+  <div id="installPill" class="install-pill" role="region" aria-label="Install app" hidden>
+    <img src="icons/icon-192.png" alt="">
+    <span class="pill-txt">Get the app</span>
+    <button id="installPillBtn" type="button"><i class="ph ph-download-simple"></i> Install</button>
+    <button id="installPillClose" type="button" aria-label="Not now">&times;</button>
+  </div>
+
   <!-- Data + engine -->
   <script src="kjv.js" defer></script>
   <script src="data.js" defer></script>
@@ -81,6 +94,9 @@
   <script src="ResurrectionMinimalFacts.js" defer></script>
   <script src="DidGodCreateTheUniverse.js" defer></script>
   <script src="CanWeTrustTheNewTestament.js" defer></script>
+
+  <!-- App: offline + install + continue reading -->
+  <script src="pwa.js" defer></script>
 
 </body>
 </html>
