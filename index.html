@@ -2,34 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Appolegetics 101</title>
-  <meta name="description" content="Plain-language answers to the big questions about faith.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Apologetics 101</title>
+  <meta name="description" content="Plain-language answers to the big questions about faith: articles, objections and answers, KJV verse lookup and a quiz.">
+  <meta name="theme-color" content="#09090b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Inter font (same as NEXUS), saved locally -->
+  <link rel="stylesheet" href="vendor/inter/inter.css">
+
+  <!-- Phosphor icons (saved locally so they always load) -->
+  <link rel="stylesheet" href="vendor/phosphor/regular.css">
+  <link rel="stylesheet" href="vendor/phosphor/fill.css">
+
+  <!-- Tailwind classes used by this site, pre-built (no build step needed to use it) -->
+  <link rel="stylesheet" href="tailwind.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="antialiased selection:bg-blue-500/30" data-view="home">
 
   <a class="skip" href="#app">Skip to content</a>
+  <div id="progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="wordmark" href="#/" aria-label="Appolegetics 101 home">
-      <span class="wordmark-name">Appolegetics</span>
-      <span class="wordmark-num">101</span>
-    </a>
-    <span class="header-count" id="article-count"></span>
-  </header>
+  <nav class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/50 px-4 md:px-6 py-3 md:py-4" aria-label="Main">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a href="#/" class="flex items-center gap-2 shrink-0" aria-label="Apologetics 101 home">
+        <i class="ph-fill ph-cross text-3xl text-blue-500"></i>
+        <span class="text-lg md:text-xl font-bold tracking-widest text-zinc-100">APOLOGETICS<span class="text-blue-400">101</span></span>
+      </a>
 
-  <main id="app" tabindex="-1"></main>
+      <div class="hidden lg:flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-full p-1">
+        <a href="#/" data-tab="home" class="tab"><i class="ph ph-house"></i> Home</a>
+        <a href="#/articles" data-tab="articles" class="tab"><i class="ph ph-books"></i> Articles</a>
+        <a href="#/answers" data-tab="answers" class="tab"><i class="ph ph-chat-circle-dots"></i> Answers</a>
+        <a href="#/bible" data-tab="bible" class="tab"><i class="ph ph-book-open-text"></i> Bible</a>
+        <a href="#/quiz" data-tab="quiz" class="tab"><i class="ph ph-exam"></i> Quiz</a>
+        <a href="#/saved" data-tab="saved" class="tab"><i class="ph ph-bookmark-simple"></i> Saved <span data-saved-count class="count hidden">0</span></a>
+      </div>
 
-  <footer class="site-footer">
-    <p>Appolegetics 101 &mdash; <span id="year"></span></p>
+      <div id="searchWrap" class="relative flex-1 max-w-xs md:max-w-sm lg:w-72 lg:flex-none">
+        <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"></i>
+        <input type="search" id="globalSearch" placeholder="Search or John 3:16" autocomplete="off" aria-label="Search articles, answers or a Bible verse"
+          class="field field-sm pl-10">
+        <div id="searchResults" class="absolute top-full right-0 left-0 mt-2 bg-zinc-800 border border-zinc-700 rounded-2xl hidden flex-col gap-1 p-2 max-h-80 overflow-y-auto z-50 shadow-2xl min-w-[260px]"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="app" tabindex="-1" class="max-w-7xl mx-auto px-4 py-6 md:py-8 flex flex-col gap-6 md:gap-8"></main>
+
+  <footer class="max-w-7xl mx-auto px-4 pt-4 pb-28 lg:pb-10 text-center text-xs text-zinc-500">
+    <p>Apologetics 101 &middot; by Oliver Holder &middot; <span id="year"></span></p>
+    <p class="mt-1">Scripture: King James Version. Verse lookup by bible-api.com.</p>
   </footer>
-  <script src="site.js" defer></script>
-  <script src="Questionyourfaith.js"defer></script>
 
+  <!-- Bottom tab bar (phones) -->
+  <nav class="tabbar lg:hidden" aria-label="Sections">
+    <a href="#/" data-tab="home"><i class="ph ph-house"></i><span>Home</span></a>
+    <a href="#/articles" data-tab="articles"><i class="ph ph-books"></i><span>Articles</span></a>
+    <a href="#/answers" data-tab="answers"><i class="ph ph-chat-circle-dots"></i><span>Answers</span></a>
+    <a href="#/bible" data-tab="bible"><i class="ph ph-book-open-text"></i><span>Bible</span></a>
+    <a href="#/quiz" data-tab="quiz"><i class="ph ph-exam"></i><span>Quiz</span></a>
+    <a href="#/saved" data-tab="saved"><i class="ph ph-bookmark-simple"></i><span>Saved</span><b data-saved-count class="dot hidden">0</b></a>
+  </nav>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Data + engine -->
+  <script src="kjv.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="site.js" defer></script>
+
+  <!-- Articles: add a new line for each article file, under this one -->
+  <script src="Questionyourfaith.js" defer></script>
 
 </body>
 </html>
