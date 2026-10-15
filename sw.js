@@ -5,7 +5,7 @@
      so edits you push show up on the next open.
    - Bump VERSION when you add or rename files (and add them to SHELL) so phones pick it up.
    - Verses looked up on the Bible page are kept on the device too. */
-const VERSION = 'a101-v1';
+const VERSION = 'a101-v2';
 const SHELL_CACHE = 'a101-shell-' + VERSION;
 const VERSE_CACHE = 'a101-verses-v1';   // not versioned: keeps looked-up verses across updates
 const VERSE_LIMIT = 400;
